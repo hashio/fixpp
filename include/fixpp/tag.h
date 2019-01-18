@@ -130,7 +130,7 @@ namespace Fixpp
             {
                 Tm()
                     : tm_tm()
-                    , tm_msec(0)
+                    , tm_msec(-1)
                 { }
 
                 Tm(const std::tm& tm, int msec)
@@ -185,7 +185,12 @@ namespace Fixpp
         {
             auto time = value.time();
             char buffer[32];
-            strftime(buffer, sizeof buffer, "%Y%m%d-%H:%M:%S", std::gmtime(&time)); 
+            if(value.tm().tm_msec < 0){
+                strftime(buffer, sizeof buffer, "%Y%m%d-%H:%M:%S", std::gmtime(&time));
+            }else{
+                strftime(buffer, sizeof buffer, "%Y%m%d-%H:%M:%S", std::gmtime(&time));
+                snprintf(&buffer[17], 5, ".%03d", value.tm().tm_msec);
+            }
             os << buffer;
             return os;
         }
