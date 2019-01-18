@@ -96,6 +96,7 @@ namespace Fixpp
         using Amt = Float;
         using Price = Float;
         using Qty = Float;
+        using Percentage = Float;
 
         struct Int : public Base<int64_t>
         {
@@ -121,7 +122,9 @@ namespace Fixpp
         using MultipleValueString = Type::String;
 
         using DayOfMonth = Int;
+        using NumInGroup = Int;
         using MonthYear = String;
+        using Currency = String;
 
         struct UTCTimestamp
         {
@@ -495,7 +498,7 @@ namespace Fixpp
         using MDEntrySeller = TagT<289, Type::String>;
         using MDEntryPositionNo = TagT<290, Type::Int>;
         using FinancialStatus = TagT<291, Type::Char>;
-        using CorporateAction = TagT<292, Type::Char>;
+        using CorporateAction = TagT<292, Type::MultipleValueString>;
         using DefBidSize = TagT<293, Type::Qty>;
         using DefOfferSize = TagT<294, Type::Qty>;
         using NoQuoteEntries = TagT<295, Type::Int>;
@@ -656,7 +659,9 @@ namespace Fixpp
         using ListStatusText = TagT<444, Type::String>;
         using EncodedListStatusTextLen = TagT<445, Type::Int>;
         using EncodedListStatusText = TagT<446, Type::Data>;
+        using PartyID = TagT<448, Type::String>;
         using NetChgPrevDay = TagT<451, Type::Float>;
+        using NoPartyIDs = TagT<453, Type::NumInGroup>;
         using NoSecurityAltID = TagT<454, Type::Int>;
         using SecurityAltID = TagT<455, Type::String>;
         using SecurityAltIDSource = TagT<456, Type::String>;
@@ -730,7 +735,18 @@ namespace Fixpp
         using Pool = TagT<691, Type::String>;
         using QuoteRespID = TagT<693, Type::String>;
         using QuoteRespType = TagT<694, Type::Int>;
+        using NoPositions = TagT<702, Type::NumInGroup>;
+        using PosType = TagT<703, Type::String>;
+        using LongQty = TagT<704, Type::Qty>;
+        using ShortQty = TagT<705, Type::Qty>;
+        using PosReqID = TagT<710, Type::String>;
         using NoUnderlyings = TagT<711, Type::Int>;
+        using ClearingBusinessDate = TagT<715, Type::LocalMktDate>;
+        using PosMainRptID = TagT<721, Type::String>;
+        using PosReqType = TagT<724, Type::Int>;
+        using TotalNumPosReports = TagT<727, Type::Int>;
+        using PosReqResult = TagT<728, Type::Int>;
+        using PosReqStatus = TagT<729, Type::Int>;
         using LegDatedDate = TagT<739, Type::LocalMktDate>;
         using LegPool = TagT<740, Type::String>;
         using SecuritySubType = TagT<762, Type::String>;
@@ -760,6 +776,9 @@ namespace Fixpp
         using NoUnderlyingStips = TagT<887, Type::Int>;
         using UnderlyingStipType = TagT<888, Type::String>;
         using UnderlyingStipValue = TagT<889, Type::String>;
+        using CollRptID = TagT<908, Type::String>;
+        using CollInquiryID = TagT<909, Type::String>;
+        using TotNumReports = TagT<911, Type::Int>;
         using UserRequestID = TagT<923, Type::String>;
         using UserRequestType = TagT<924, Type::Int>;
         using NewPassword = TagT<925, Type::Int>;
@@ -767,6 +786,8 @@ namespace Fixpp
         using UserStatusText = TagT<927, Type::String>;
         using UnderlyingStrikeCurrency = TagT<941, Type::String>;
         using LegStrikeCurrency = TagT<942, Type::String>;
+        using CollInquiryStatus = TagT<945, Type::Int>;
+        using CollInquiryResult = TagT<946, Type::Int>;
         using StrikeCurrency = TagT<947, Type::String>;
         using LegContractSettlMonth = TagT<955, Type::String>;
         using LegInterestAccrualDate = TagT<956, Type::String>;

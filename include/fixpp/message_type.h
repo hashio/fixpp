@@ -60,8 +60,15 @@ namespace Fixpp
         using QuoteCancel = Chars<'Z'>;
         using QuoteRequestReject = Chars<'A', 'G'>;
         using QuoteResponse = Chars<'A', 'J'>;
+        using RequestForPositions = Chars<'A', 'N'>;
+        using RequestForPositionsAck = Chars<'A', 'O'>;
+        using PositionReport = Chars<'A', 'P'>;
+        using CollateralReport = Chars<'B', 'A'>;
+        using CollateralInquiry = Chars<'B', 'B'>;
         using UserRequest = Chars<'B', 'E'>;
         using UserResponse = Chars<'B', 'F'>;
+        using CollateralInquiryAck = Chars<'B', 'G'>;
+
     }
 
 } // namespace Fixpp
